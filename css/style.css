@@ -1,0 +1,25 @@
+.typing{
+    font-size:20px;
+    width:auto;
+    height:30px;
+    color:black;
+    font-family:DFKai-SB;
+    border-right:1px solid darkgray;
+    animation:write 4s steps(10)forwards,blink 0.5s steps(1) infinite;
+    animation-iteration-count:infinite;
+    overflow:hidden;
+}
+
+@keyframes write{
+    0%{
+        width:0;
+    }
+    100%{
+        width:800px;
+    }
+}
+@keyframes blink{
+    50%{
+        boder-color:transparent;
+    }
+}

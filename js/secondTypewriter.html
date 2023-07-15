@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="secondTypewiter">
+        <title>secondTypewriter</title>
+        <script src="./style.js"></script>
+        <style>
+            /* 产生光标闪烁的效果 */
+            /* infinite:动画无限循环 */
+            #content::after{
+                content:'|';
+                color:#000;
+                animation:blink 1s infinite;
+            }
+            @keyframes blink{
+                from{
+                    opacity:0;
+                }
+                to{
+                    opacity:1;
+                }
+            
+            }
+        </style>
+        <div id="content"></div>
+        <script>
+            (function(){
+           const container=document.getElementById('content')
+           const Dt='《破阵子·为陈同甫赋壮词以寄之》【宋】辛弃疾 醉里挑灯看剑，梦回吹角连营。八百里分麾下炙，五十弦翻塞外声，沙场秋点兵。马作的卢飞快，弓如霹雳弦惊。了却君王天下事，赢得生前身后名。可怜白发生！'
+           const data=Dt.split('')
+           let index=0
+           function writing(){
+               if(index<data.length){
+               container.innerHTML+=data[index++];
+               let timer=setTimeout(writing,200);
+        }
+    }
+    writing()
+})();
+
+        </script>
+
+
+
+        <!-- <style>
+            /* 产生光标闪烁的效果 */
+            #content::after{
+                content: '|';
+                color:#000;
+                animation: blink 1s infinite;
+            }
+            @keyframes blink{
+                from{
+                    opacity: 0;
+                }
+                to{
+                    opacity: 1;
+                }
+            }
+          </style>
+            <div id='content'></div>
+            <script>
+              (function () {
+              // 获取容器
+              const container = document.getElementById('content')
+              // 把需要展示的全部文字进行切割
+              const data = '自在，轻盈，我本不想停留'.split('')
+              // 需要追加到容器中的文字下标
+              let index = 0
+              function writing() {
+                if (index < data.length) {
+                  // 追加文字
+                  container.innerHTML += data[index ++]
+                  let timer = setTimeout(writing, 200)
+                }
+              }
+              writing()
+            })();
+            </script> -->
+          
+    </head>
+    <body>
+    </body>
+</html>
