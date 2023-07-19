@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" contentt="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #content::after{
+                content:'|';
+                color:#000;
+                animation:blink 4s infinite;
+                animation-iteration-count:infinite;
+            }
+            @keyframes blink{
+                from{
+                    opacity:0;
+                }
+                to{
+                    opacity:1;
+                }
+            }
+        </style>
+        <div id="content"></div> 
+        <script>
+            (function(){
+                const container=document.getElementById('content');
+                const str=`settimeout和setinterval是JavaScript中的两个定时器函数。
+                      settimeout函数用于在指定的时间后执行一次函数，语法为：setTimeout(function, milliseconds)。
+                      其中，function是要执行的函数，milliseconds是延迟的毫秒数。
+                      setinterval函数用于每隔一定时间执行一次函数，语法为：setInterval(function, milliseconds)。
+                      其中，function是要执行的函数，milliseconds是间隔的毫秒数。
+                      这两个函数在前端开发中非常常用，可以用来实现定时刷新、轮播图、倒计时等功能。
+                      但是需要注意的是，使用这两个函数时要注意内存泄漏问题，及时清除定时器。`;
+                const data=str.split('');
+                let index=0;
+                let timer=null;
+                function writing(){
+                    if(index<data.length){
+                        container.innerHTML+=data[index++]
+                    }else{
+                        clearInterval(timer);
+                    }
+                    console.log(timer);
+                }
+                timer=setInterval(writing,timer)
+            })();
+        </script>
+        </head>
+        <body></body>
+</html>
+
+
+
+
+
+ 

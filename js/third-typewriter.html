@@ -1,0 +1,50 @@
+<!DOOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /*产生光标闪烁的效果*/
+            #content::after{
+                content:'|';
+                color:black;
+                animation:blink 1s infinite;
+                /* overflow:hidden */
+            }
+            @keyframes blink{
+                 from{
+                    opacity:0;
+                 }
+                 to{
+                    opacity:1;
+                 }
+            }
+             
+        </style>
+        <div id="content"></div>
+        <script>
+            (function(){
+                    const container=document.getElementById('content');
+                    const str='乘风破浪会有时，直挂云帆济沧海';
+                    const data=str.split('');
+                    let index=0;
+                    let timer=null;
+                    function writing(){
+                        if(index<data.length){
+                            container.innerHTML+=data[index ++]
+                        }else{
+                            clearInterval(timer)
+                        }
+                        console.log(timer);
+                    }
+                     timer=setInterval(writing,200)
+                     
+                }
+            )()
+        </script>
+          
+    </head>
+    <body>
+    </body>
+</html>
